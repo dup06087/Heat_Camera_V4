@@ -39,7 +39,19 @@ class Ui_MainWindow(object):
         self.btn2 = QtWidgets.QPushButton()
         self.btn3 = QtWidgets.QPushButton()
         self.btn4 = QtWidgets.QPushButton()
-        self.lbl_CAM_Num = [self.btn1, self.btn2, self.btn3, self.btn4]
+        self.btn5 = QtWidgets.QPushButton()
+        self.btn6 = QtWidgets.QPushButton()
+        self.btn7 = QtWidgets.QPushButton()
+        self.btn8 = QtWidgets.QPushButton()
+        self.btn9 = QtWidgets.QPushButton()
+        self.btn10 = QtWidgets.QPushButton()
+        self.btn11 = QtWidgets.QPushButton()
+        self.btn12 = QtWidgets.QPushButton()
+        self.btn13 = QtWidgets.QPushButton()
+        self.btn14 = QtWidgets.QPushButton()
+        self.btn15 = QtWidgets.QPushButton()
+        self.btn16 = QtWidgets.QPushButton()
+        self.lbl_CAM_Num = [self.btn1, self.btn2, self.btn3, self.btn4, self.btn5, self.btn6, self.btn7, self.btn8, self.btn9, self.btn10, self.btn11, self.btn12, self.btn13, self.btn14, self.btn15, self.btn16]
         self.chart = []
         self.CAM_RHP = []
         self.lbl_prob_chk = []
@@ -56,6 +68,21 @@ class Ui_MainWindow(object):
         self.btn2.clicked.connect(lambda: self.buttonClick(self.btn2))  ### push button클릭시 번호
         self.btn3.clicked.connect(lambda: self.buttonClick(self.btn3))  ### push button클릭시 번호
         self.btn4.clicked.connect(lambda: self.buttonClick(self.btn4))  ### push button클릭시 번호
+
+        self.btn5.clicked.connect(lambda: self.buttonClick(self.btn5))  ### push button클릭시 번호
+        self.btn6.clicked.connect(lambda: self.buttonClick(self.btn6))  ### push button클릭시 번호
+        self.btn7.clicked.connect(lambda: self.buttonClick(self.btn7))  ### push button클릭시 번호
+        self.btn8.clicked.connect(lambda: self.buttonClick(self.btn8))  ### push button클릭시 번호
+
+        self.btn9.clicked.connect(lambda: self.buttonClick(self.btn9))  ### push button클릭시 번호
+        self.btn10.clicked.connect(lambda: self.buttonClick(self.btn10))  ### push button클릭시 번호
+        self.btn11.clicked.connect(lambda: self.buttonClick(self.btn11))  ### push button클릭시 번호
+        self.btn12.clicked.connect(lambda: self.buttonClick(self.btn12))  ### push button클릭시 번호
+
+        self.btn13.clicked.connect(lambda: self.buttonClick(self.btn13))  ### push button클릭시 번호
+        self.btn14.clicked.connect(lambda: self.buttonClick(self.btn14))  ### push button클릭시 번호
+        self.btn15.clicked.connect(lambda: self.buttonClick(self.btn15))  ### push button클릭시 번호
+        self.btn16.clicked.connect(lambda: self.buttonClick(self.btn16))  ### push button클릭시 번호
 
         for i in range(camera_num):
 
@@ -101,8 +128,8 @@ class Ui_MainWindow(object):
                 self.CAM_LHP[i].addLayout(self.chart[i])
                 self.CAM_Layout[i].addLayout(self.CAM_LHP[i])
             except:
-                print("drawing fail2 : ", i)
-
+                # print("drawing fail2 : ", i)
+                pass
 
             self.CAM_RHP.append(QtWidgets.QVBoxLayout())
             self.CAM_RHP[i].setObjectName("CAM_RHP{num}".format(num = i))
@@ -222,7 +249,7 @@ class Ui_MainWindow(object):
 
         for i in range(camera_num):
             if self.lbl_CAM_Num[i] == button:
-                print("index = ", i)
+                # print("index = ", i)
                 self.clicked_num = i
 
         if MainWindow.ui is None:
@@ -241,7 +268,7 @@ class AnotherWindow(QtWidgets.QWidget):
     will appear as a free-floating window as we want.
     """
     def __init__(self):
-        print("get num = ", ui.clicked_num)
+        # print("get num = ", ui.clicked_num)
         super().__init__()
         # layout = QtWidgets.QVBoxLayout()
 
@@ -741,7 +768,7 @@ class Ui_Form(object):
     def URL_get_clicked(self):
         _translate = QtCore.QCoreApplication.translate
         Url = QtWidgets.QFileDialog.getOpenFileName()
-        print(Url)
+        # print(Url)
 
         f = open("URL.txt", 'w')
         f.write(Url[0])
